@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Winterpadel 2026/27 — Speelschema</title>
+<style>
+:root{
+  --artifact-background: var(--theme-background, #f7f8fa);
+  --artifact-surface: var(--theme-background-light, #ffffff);
+  --artifact-surface-2: #eef2f7;
+  --artifact-text: var(--theme-text-primary, #16202e);
+  --artifact-muted: #3f4c5c;
+  --artifact-border: #dbe3ec;
+  --artifact-accent: #1f6feb;
+  --artifact-accent-soft: #e5efff;
+  --artifact-even: #1f6feb;
+  --artifact-even-soft: #e5efff;
+  --artifact-odd: #0e9f6e;
+  --artifact-odd-soft: #e2f5ec;
+  --artifact-play: #e2f0d9;
+  --artifact-play-text: #216e2c;
+  --artifact-absent: #f7d4d4;
+  --artifact-absent-text: #9c1c1c;
+  --artifact-rest: #f0f3f7;
+  --artifact-rest-text: #55647a;
+  --artifact-none: #fff3d1;
+  --artifact-none-text: #8a6d10;
+  --artifact-shadow: 0 1px 3px rgba(20,32,46,.08), 0 6px 24px rgba(20,32,46,.06);
+}
+html[data-theme='dark']{
+  --artifact-background:#0f141b;--artifact-surface:#171e27;--artifact-surface-2:#1e2733;
+  --artifact-text:#e8edf3;--artifact-muted:#9fb0c2;--artifact-border:#2a3644;
+  --artifact-accent:#4f8dff;--artifact-accent-soft:#1d2c44;
+  --artifact-even:#4f8dff;--artifact-even-soft:#1d2c44;--artifact-odd:#34d399;--artifact-odd-soft:#123329;
+  --artifact-play:#1c3b22;--artifact-play-text:#8fe6a0;
+  --artifact-absent:#4a1f1f;--artifact-absent-text:#f4a3a3;
+  --artifact-rest:#232d39;--artifact-rest-text:#9fb0c2;
+  --artifact-none:#3a3212;--artifact-none-text:#f0d783;
+  --artifact-shadow:0 1px 3px rgba(0,0,0,.4),0 6px 24px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--artifact-background);color:var(--artifact-text);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+header.hero{background:linear-gradient(135deg,var(--artifact-accent),#0e9f6e);border-radius:18px;padding:30px 28px;color:#fff;box-shadow:var(--artifact-shadow)}
+header.hero h1{margin:0;font-size:1.9rem;font-weight:800;letter-spacing:-.02em}
+header.hero p{margin:8px 0 0;font-size:1rem;opacity:.95}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);border-radius:10px;padding:8px 12px;font-size:.85rem;font-weight:600;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.courts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+@media(max-width:620px){.courts{grid-template-columns:1fr}header.hero h1{font-size:1.5rem}}
+.court{background:var(--artifact-surface);border:1px solid var(--artifact-border);border-radius:14px;padding:16px 18px;box-shadow:var(--artifact-shadow)}
+.court .tag{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:3px 9px;border-radius:20px}
+.court.even .tag{background:var(--artifact-even-soft);color:var(--artifact-even)}
+.court.odd .tag{background:var(--artifact-odd-soft);color:var(--artifact-odd)}
+.court h3{margin:10px 0 2px;font-size:1.15rem}
+.court .time{font-size:1.35rem;font-weight:800;letter-spacing:-.01em}
+.court .sub{color:var(--artifact-muted);font-size:.85rem}
+.section-title{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--artifact-muted);margin:30px 0 12px}
+.next{margin-top:20px;border-radius:18px;padding:22px 24px;color:#fff;box-shadow:var(--artifact-shadow);position:relative;overflow:hidden}
+.next.even{background:linear-gradient(135deg,#1f6feb,#0b4fc0)}
+.next.odd{background:linear-gradient(135deg,#0e9f6e,#0a7d55)}
+.next.done{background:linear-gradient(135deg,#3f4c5c,#26313f)}
+.next .eyebrow{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.9;display:flex;align-items:center;gap:8px}
+.next .live{width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 0 rgba(255,255,255,.7);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}70%{box-shadow:0 0 0 9px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+.next .when{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin:8px 0 2px;text-transform:capitalize}
+.next .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.next .mpill{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.32);border-radius:10px;padding:7px 13px;font-size:.9rem;font-weight:700}
+.next .who-label{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;opacity:.9;margin:18px 0 8px}
+.next .who{display:flex;flex-wrap:wrap;gap:10px}
+.next .pl{background:#fff;color:#16202e;border-radius:12px;padding:10px 16px;font-size:1.05rem;font-weight:800;display:flex;align-items:center;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+.next .pl .num{width:22px;height:22px;border-radius:50%;background:var(--artifact-accent);color:#fff;font-size:.78rem;display:flex;align-items:center;justify-content:center;font-weight:800}
+.next.odd .pl .num{background:var(--artifact-odd)}
+.next .rest-note{margin-top:14px;font-size:.82rem;opacity:.9}
+.next .countdown{position:absolute;top:22px;right:24px;text-align:right}
+.next .countdown .n{font-size:1.8rem;font-weight:800;line-height:1}
+.next .countdown .u{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;opacity:.9}
+@media(max-width:560px){.next .countdown{position:static;text-align:left;margin-top:10px}.next .when{font-size:1.25rem}}
+.filter{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{cursor:pointer;border:1px solid var(--artifact-border);background:var(--artifact-surface);color:var(--artifact-text);border-radius:22px;padding:8px 15px;font-size:.9rem;font-weight:600;transition:.15s;user-select:none}
+.chip:hover{border-color:var(--artifact-accent)}
+.chip.active{background:var(--artifact-accent);border-color:var(--artifact-accent);color:#fff}
+.chip.all.active{background:var(--artifact-text);border-color:var(--artifact-text)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0 4px;font-size:.83rem;color:var(--artifact-muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:14px;height:14px;border-radius:4px;display:inline-block}
+.card{background:var(--artifact-surface);border:1px solid var(--artifact-border);border-radius:16px;box-shadow:var(--artifact-shadow);overflow:hidden;margin-top:12px}
+.table-scroll{max-height:70vh;overflow:auto}
+table{border-collapse:collapse;width:100%;min-width:700px}
+th,td{padding:6px 8px;text-align:center;font-size:.88rem;border-bottom:1px solid var(--artifact-border)}
+thead th{position:-webkit-sticky;position:sticky;top:0;background:var(--artifact-surface-2);font-size:.74rem;text-transform:uppercase;letter-spacing:.04em;color:var(--artifact-muted);font-weight:700;z-index:2}
+th.datecol,td.datecol{text-align:left;white-space:nowrap;font-weight:600;font-size:.8rem;padding:6px 10px;line-height:1.25;position:-webkit-sticky;position:sticky;left:0;background:var(--artifact-surface);z-index:1}
+thead th.datecol{z-index:3;background:var(--artifact-surface-2)}
+tr.even-row td.datecol .wk{color:var(--artifact-even)}
+tr.odd-row td.datecol .wk{color:var(--artifact-odd)}
+.wk{display:block;font-size:.68rem;font-weight:700;margin-bottom:1px}
+.court-pill{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:14px}
+.court-pill.even{background:var(--artifact-even-soft);color:var(--artifact-even)}
+.court-pill.odd{background:var(--artifact-odd-soft);color:var(--artifact-odd)}
+td.cell{font-weight:700;font-size:.82rem}
+.cell.play{background:var(--artifact-play);color:var(--artifact-play-text)}
+.cell.absent{background:var(--artifact-absent);color:var(--artifact-absent-text)}
+.cell.rest{background:var(--artifact-rest);color:var(--artifact-rest-text)}
+.cell.none{background:var(--artifact-none);color:var(--artifact-none-text)}
+tr.noplay td{background:var(--artifact-none);color:var(--artifact-none-text);font-style:italic}
+tr.highlight-play{outline:2px solid var(--artifact-accent);outline-offset:-2px}
+tbody tr:hover td{filter:brightness(.98)}
+tfoot td{font-weight:800;background:var(--artifact-surface-2);border-top:2px solid var(--artifact-accent)}
+.summary{display:grid;grid-template-columns:repeat(auto-ffill,minmax(150px,1fr));gap:12px;margin-top:12px}
+.pcard{background:var(--artifact-surface);border:1px solid var(--artifact-border);border-radius:14px;padding:15px 16px;box-shadow:var(--artifact-shadow)}
+.pcard h4{margin:0 0 8px;font-size:1rem;display:flex;justify-content:space-between;align-items:center}
+.pcard .big{font-size:1.7rem;font-weight:800;color:var(--artifact-accent)}
+.pcard .split{display:flex;gap:14px;margin-top:6px;font-size:.82rem;color:var(--artifact-muted)}
+.pcard .split b{color:var(--artifact-text)}
+.ics-btn{margin-top:12px;width:100%;cursor:pointer;border:1px solid var(--artifact-accent);background:var(--artifact-accent-soft);color:var(--artifact-accent);border-radius:10px;padding:8px 12px;font-size:.82rem;font-weight:700;transition:.15s}
+.ics-btn:hover{background:var(--artifact-accent);color:#fff}
+.ics-help{font-size:.82rem;color:var(--artifact-muted);margin:-2px 0 8px}
+.ok{font-size:.68rem;font-weight:700;color:var(--artifact-play-text);background:var(--artifact-play);padding:2px 8px;border-radius:12px}
+.notes-list{margin:10px 0 0;padding:0;list-style:none;font-size:.86rem}
+.notes-list li{padding:8px 0;border-bottom:1px solid var(--artifact-border);display:flex;gap:10px}
+.notes-list li b{min-width:64px;color:var(--artifact-accent)}
+.foot{margin-top:26px;font-size:.8rem;color:var(--artifact-muted);text-align:center}
+.share{background:var(--artifact-accent-soft);border:1px solid var(--artifact-border);border-radius:14px;padding:16px 18px;margin-top:24px;font-size:.88rem;color:var(--artifact-text)}
+.share b{color:var(--artifact-accent)}
+@media print{
+  body{margin:0;padding:.4in .5in;background:#fff;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  .wrap{max-width:100%!important}
+  .filter,.share,button{display:none!important}
+  thead th{position:static!important}
+  th.datecol,td.datecol{position:static!important}
+  table{min-width:0}
+  .card,.court,.pcard,section{break-inside:avoid}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero" data-glean-id="hero">
+    <h1>🎾 Winterpadel 2026/27</h1>
+    <p>Speelschema — donderdag 3 september 2026 t/m donderdag 29 april 2027</p>
+    <div class="badges">
+      <span class="badge">8 spelers</span>
+      <span class="badge">34 speelavonden</span>
+      <span class="badge">Iedereen 17× · 8 even / 9 oneven</span>
+      <span class="badge">Even → Baan 1 · 18:30–19:30</span>
+      <span class="badge">Oneven → Baan 4 · 20:00–21:00</span>
+    </div>
+  </header>
+
+  <div class="next even" id="next" data-glean-id="next-round"><div class="countdown"><div class="n">8</div><div class="u">dagen te gaan</div></div><div class="eyebrow"><span class="live"></span>Aankomende ronde · Week 36</div><div class="when">donderdag 3 september</div><div class="meta"><span class="mpill">🎾 Baan 1</span><span class="mpill">🕒 18:30–19:30</span></div><div class="who-label">Deze ronde spelen</div><div class="who"><span class="pl"><span class="num">1</span>Hemmer</span><span class="pl"><span class="num">2</span>Kuch</span><span class="pl"><span class="num">3</span>Lustig</span><span class="pl"><span class="num">4</span>Taan</span></div><div class="rest-note">Rust deze ronde: App, Doc, Trax, Geit</div></div>
+
+  <div class="section-title">Filter op speler</div>
+  <div class="filter" id="filter" data-glean-id="player-filter"><div class="chip all active" data-glean-id="chip-all">Alle spelers</div><div class="chip" data-glean-id="chip-App">App</div><div class="chip" data-glean-id="chip-Doc">Doc</div><div class="chip" data-glean-id="chip-Kuch">Kuch</div><div class="chip" data-glean-id="chip-Trax">Trax</div><div class="chip" data-glean-id="chip-Taan">Taan</div><div class="chip" data-glean-id="chip-Hemmer">Hemmer</div><div class="chip" data-glean-id="chip-Lustig">Lustig</div><div class="chip" data-glean-id="chip-Geit">Geit</div></div>
+  <div class="legend">
+    <span><i class="dot" style="background:var(--artifact-play)"></i>Speelt</span>
+    <span><i class="dot" style="background:var(--artifact-rest)"></i>Rust</span>
+    <span><i class="dot" style="background:var(--artifact-absent)"></i>Verhinderd (vooraf bekend)</span>
+    <span><i class="dot" style="background:var(--artifact-none)"></i>Geen speelavond</span>
+  </div>
+
+  <div class="card" data-glean-id="schedule-card">
+    <div class="table-scroll">
+      <table id="sched">
+        <thead><tr id="head"><th class="datecol">Datum</th><th>Baan &amp; tijd</th><th>App</th><th>Doc</th><th>Kuch</th><th>Trax</th><th>Taan</th><th>Hemmer</th><th>Lustig</th><th>Geit</th></tr></thead>
+        <tbody id="body"><tr class="even-row" data-glean-id="row-2026-09-03"><td class="datecol"><span class="wk">Week 36</span>3 sep 2026</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell absent">✕✕</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell absent">✕✕</td></tr><tr class="odd-row" data-glean-id="row-2026-09-10"><td class="datecol"><span class="wk">Week 37</span>10 sep 2026</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell absent">✕✕</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td></tr><tr class="even-row" data-glean-id="row-2026-09-17"><td class="datecol"><span class="wk">Week 38</span>17 sep 2026</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td></tr><tr class="odd-row" data-glean-id="row-2026-09-24"><td class="datecol"><span class="wk">Week 39</span>24 sep 2026</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td></tr><tr class="even-row" data-glean-id="row-2026-10-01"><td class="datecol"><span class="wk">Week 40</span>1 okt 2026</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td></tr><tr class="odd-row" data-glean-id="row-2026-10-08"><td class="datecol"><span class="wk">Week 41</span>8 okt 2026</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell rest">·</td></tr><tr class="even-row" data-glean-id="row-2026-10-15"><td class="datecol"><span class="wk">Week 42</span>15 okt 2026</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td></tr><tr class="odd-row" data-glean-id="row-2026-10-22"><td class="datecol"><span class="wk">Week 43</span>22 okt 2026</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell absent">✕✕</td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell play">✓</td></tr><tr class="even-row" data-glean-id="row-2026-10-29"><td class="datecol"><span class="wk">Week 44</span>29 okt 2026</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell absent">✕✕</td><td class="cell rest">·</td><td class="cell play">✓</td></tr><tr class="odd-row" data-glean-id="row-2026-11-05"><td class="datecol"><span class="wk">Week 45</span>5 nov 2026</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td></tr><tr class="even-row" data-glean-id="row-2026-11-12"><td class="datecol"><span class="wk">Week 46</span>12 nov 2026</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell absent">✕✕</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td></tr><tr class="odd-row" data-glean-id="row-2026-11-19"><td class="datecol"><span class="wk">Week 47</span>19 nov 2026</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell rest">·</td></tr><tr class="even-row" data-glean-id="row-2026-11-26"><td class="datecol"><span class="wk">Week 48</span>26 nov 2026</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td></tr><tr class="odd-row" data-glean-id="row-2026-12-03"><td class="datecol"><span class="wk">Week 49</span>3 dec 2026</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell play">✓</td></tr><tr class="even-row" data-glean-id="row-2026-12-10"><td class="datecol"><span class="wk">Week 50</span>10 dec 2026</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell absent">✕✕</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td></tr><tr class="odd-row" data-glean-id="row-2026-12-17"><td class="datecol"><span class="wk">Week 51</span>17 dec 2026</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td></tr><tr class="noplay" data-glean-id="row-2026-12-24"><td class="datecol"><span class="wk">Week 52</span>24 dec 2026</td><td style="font-style:italic">Kerstavond — geen speelavond</td><td class="cell none">–</td><td class="cell none">–</td><td class="cell none">–</td><td class="cell absent">✕✕</td><td class="cell none">–</td><td class="cell none">–</td><td class="cell none">–</td><td class="cell none">–</td></tr><tr class="noplay" data-glean-id="row-2026-12-31"><td class="datecol"><span class="wk">Week 53</span>31 dec 2026</td><td style="font-style:italic">Oudjaarsavond — geen speelavond</td><td class="cell absent">✕✕</td><td class="cell none">–</td><td class="cell none">–</td><td class="cell absent">✕✕</td><td class="cell none">–</td><td class="cell none">–</td><td class="cell none">–</td><td class="cell none">–</td></tr><tr class="odd-row" data-glean-id="row-2027-01-07"><td class="datecol"><span class="wk">Week 1</span>7 jan 2027</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell rest">·</td></tr><tr class="even-row" data-glean-id="row-2027-01-14"><td class="datecol"><span class="wk">Week 2</span>14 jan 2027</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td></tr><tr class="odd-row" data-glean-id="row-2027-01-21"><td class="datecol"><span class="wk">Week 3</span>21 jan 2027</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell absent">✕✕</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell play">✓</td></tr><tr class="noplay" data-glean-id="row-2027-01-28"><td class="datecol"><span class="wk">Week 4</span>28 jan 2027</td><td style="font-style:italic">Geen speelavond</td><td class="cell absent">✕✕</td><td class="cell absent">✕✕</td><td class="cell absent">✕✕</td><td class="cell absent">✕✕</td><td class="cell absent">✕✕</td><td class="cell none">–</td><td class="cell absent">✕✕</td><td class="cell absent">✕✕</td></tr><tr class="odd-row" data-glean-id="row-2027-02-04"><td class="datecol"><span class="wk">Week 5</span>4 feb 2027</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td></tr><tr class="even-row" data-glean-id="row-2027-02-11"><td class="datecol"><span class="wk">Week 6</span>11 feb 2027</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell rest">·</td></tr><tr class="odd-row" data-glean-id="row-2027-02-18"><td class="datecol"><span class="wk">Week 7</span>18 feb 2027</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell absent">✕✕</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td></tr><tr class="even-row" data-glean-id="row-2027-02-25"><td class="datecol"><span class="wk">Week 8</span>25 feb 2027</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell play">✓</td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell absent">✕✕</td><td class="cell play">✓</td></tr><tr class="odd-row" data-glean-id="row-2027-03-04"><td class="datecol"><span class="wk">Week 9</span>4 mrt 2027</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell absent">✕✕</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td></tr><tr class="even-row" data-glean-id="row-2027-03-11"><td class="datecol"><span class="wk">Week 10</span>11 mrt 2027</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell absent">✕✕</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td></tr><tr class="odd-row" data-glean-id="row-2027-03-18"><td class="datecol"><span class="wk">Week 11</span>18 mrt 2027</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell absent">✕✕</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td></tr><tr class="even-row" data-glean-id="row-2027-03-25"><td class="datecol"><span class="wk">Week 12</span>25 mrt 2027</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell rest">·</td></tr><tr class="odd-row" data-glean-id="row-2027-04-01"><td class="datecol"><span class="wk">Week 13</span>1 apr 2027</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td></tr><tr class="even-row" data-glean-id="row-2027-04-08"><td class="datecol"><span class="wk">Week 14</span>8 apr 2027</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell play">✓</td></tr><tr class="odd-row" data-glean-id="row-2027-04-15"><td class="datecol"><span class="wk">Week 15</span>15 apr 2027</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell rest">·</td></tr><tr class="even-row" data-glean-id="row-2027-04-22"><td class="datecol"><span class="wk">Week 16</span>22 apr 2027</td><td><span class="court-pill even">Baan 1</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">18:30–19:30</span></td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell rest">·</td><td class="cell play">✓</td></tr><tr class="odd-row" data-glean-id="row-2027-04-29"><td class="datecol"><span class="wk">Week 17</span>29 apr 2027</td><td><span class="court-pill odd">Baan 4</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">20:00–21:00</span></td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell play">✓</td><td class="cell absent">✕✕</td><td class="cell rest">·</td><td class="cell rest">·</td><td class="cell play">✓</td><td class="cell rest">·</td></tr></tbody>
+        <tfoot id="foot"><td class="datecol">Totaal</td><td></td><td>16×</td><td>16×</td><td>16×</td><td>17×</td><td>16×</td><td>15×</td><td>16×</td><td>16×</td></tfoot>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-title">Balans per speler</div>
+  <div class="ics-help" data-glean-id="ics-help">📅 Klik op “Zet in agenda” om jouw speeldagen als .ics te downloaden en te importeren in Google Agenda, Apple Agenda of Outlook (met juiste baan, tijd en teamgenoten).</div>
+  <div class="summary" id="summary" data-glean-id="summary"><div class="pcard" data-glean-id="pcard-App"><h4>App <span class="ok">16×</span></h4><div class="split"><span>Even (Baan 1): <b>7</b></span><span>Oneven (Baan 4): <b>9</b></span></div><button class="ics-btn" type="button" onclick="event.stopPropagation();downloadICS('App')">📅 Zet in agenda</button></div><div class="pcard" data-glean-id="pcard-Doc"><h4>Doc <span class="ok">16×</span></h4><div class="split"><span>Even (Baan 1): <b>7</b></span><span>Oneven (Baan 4): <b>9</b></span></div><button class="ics-btn" type="button" onclick="event.stopPropagation();downloadICS('Doc')">📅 Zet in agenda</button></div><div class="pcard" data-glean-id="pcard-Kuch"><h4>Kuch <span class="ok">16×</span></h4><div class="split"><span>Even (Baan 1): <b>8</b></span><span>Oneven (Baan 4): <b>8</b></span></div><button class="ics-btn" type="button" onclick="event.stopPropagation();downloadICS('Kuch')">📅 Zet in agenda</button></div><div class="pcard" data-glean-id="pcard-Trax"><h4>Trax <span class="ok">17×</span></h4><div class="split"><span>Even (Baan 1): <b>8</b></span><span>Oneven (Baan 4): <b>9</b></span></div><button class="ics-btn" type="button" onclick="event.stopPropagation();downloadICS('Trax')">📅 Zet in agenda</button></div><div class="pcard" data-glean-id="pcard-Taan"><h4>Taan <span class="ok">16×</span></h4><div class="split"><span>Even (Baan 1): <b>7</b></span><span>Oneven (Baan 4): <b>9</b></span></div><button class="ics-btn" type="button" onclick="event.stopPropagation();downloadICS('Taan')">📅 Zet in agenda</button></div><div class="pcard" data-glean-id="pcard-Hemmer"><h4>Hemmer <span class="ok">15×</span></h4><div class="split"><span>Even (Baan 1): <b>7</b></span><span>Oneven (Baan 4): <b>8</b></span></div><button class="ics-btn" type="button" onclick="event.stopPropagation();downloadICS('Hemmer')">📅 Zet in agenda</button></div><div class="pcard" data-glean-id="pcard-Lustig"><h4>Lustig <span class="ok">16×</span></h4><div class="split"><span>Even (Baan 1): <b>8</b></span><span>Oneven (Baan 4): <b>8</b></span></div><button class="ics-btn" type="button" onclick="event.stopPropagation();downloadICS('Lustig')">📅 Zet in agenda</button></div><div class="pcard" data-glean-id="pcard-Geit"><h4>Geit <span class="ok">16×</span></h4><div class="split"><span>Even (Baan 1): <b>8</b></span><span>Oneven (Baan 4): <b>8</b></span></div><button class="ics-btn" type="button" onclick="event.stopPropagation();downloadICS('Geit')">📅 Zet in agenda</button></div></div>
+
+  <div class="section-title">Vooraf bekende verhinderingen</div>
+  <div class="card" style="padding:6px 18px 12px" data-glean-id="notes">
+    <ul class="notes-list" id="notes"><li data-glean-id="note-App"><b>App</b><span>3 sep, 17 sep, 15 okt, 29 okt, 19 nov, 10 dec, 17 dec, 31 dec, 21 jan, 28 jan, 18 feb, 18 mrt</span></li><li data-glean-id="note-Doc"><b>Doc</b><span>28 jan, 25 feb</span></li><li data-glean-id="note-Kuch"><b>Kuch</b><span>8 okt, 28 jan</span></li><li data-glean-id="note-Trax"><b>Trax</b><span>Alleen beschikbaar op: 24 sep, 1 okt, 8 okt, 15 okt, 22 okt, 3 dec, 10 dec, 17 dec, 14 jan, 21 jan, 4 feb, 11 feb, 25 mrt, 1 apr, 8 apr, 15 apr, 22 apr</span></li><li data-glean-id="note-Taan"><b>Taan</b><span>22 okt, 28 jan</span></li><li data-glean-id="note-Hemmer"><b>Hemmer</b><span>22 okt, 29 okt, 19 nov</span></li><li data-glean-id="note-Lustig"><b>Lustig</b><span>28 jan, 25 feb</span></li><li data-glean-id="note-Geit"><b>Geit</b><span>3 sep, 28 jan</span></li></ul>
+  </div>
+
+  <div class="share" data-glean-id="share">
+    <b>Delen &amp; online zetten:</b> dit is één zelfstandig HTML-bestand. Open het het best in een echte browser (Safari, Chrome) — in het snelle bestandsvoorbeeld van iPhone/iPad werken de knoppen en het live aftellen niet. Delen kan via Google Drive (Delen → link), als bijlage mailen, of gratis hosten via bijvoorbeeld GitHub Pages of Netlify Drop.
+  </div>
+
+  <div class="foot">Even weken → Baan 1 (18:30–19:30) · Oneven weken → Baan 4 (20:00–21:00). 28 januari, 24 en 31 december vervallen.</div>
+</div>
+<script>
+const DATA = {"players": ["App", "Doc", "Kuch", "Trax", "Taan", "Hemmer", "Lustig", "Geit"], "rows": [{"iso": "2026-09-03", "week": 36, "label": "3 sep 2026", "short": "3 sep", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["Hemmer", "Kuch", "Lustig", "Taan"], "absent": ["App", "Trax", "Geit"], "noplay_reason": ""}, {"iso": "2026-09-10", "week": 37, "label": "10 sep 2026", "short": "10 sep", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["App", "Geit", "Hemmer", "Kuch"], "absent": ["Trax"], "noplay_reason": ""}, {"iso": "2026-09-17", "week": 38, "label": "17 sep 2026", "short": "17 sep", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["Doc", "Geit", "Lustig", "Taan"], "absent": ["App", "Trax"], "noplay_reason": ""}, {"iso": "2026-09-24", "week": 39, "label": "24 sep 2026", "short": "24 sep", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["Hemmer", "Kuch", "Taan", "Trax"], "absent": [], "noplay_reason": ""}, {"iso": "2026-10-01", "week": 40, "label": "1 okt 2026", "short": "1 okt", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["App", "Geit", "Hemmer", "Trax"], "absent": [], "noplay_reason": ""}, {"iso": "2026-10-08", "week": 41, "label": "8 okt 2026", "short": "8 okt", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["Doc", "Lustig", "Taan", "Trax"], "absent": ["Kuch"], "noplay_reason": ""}, {"iso": "2026-10-15", "week": 42, "label": "15 okt 2026", "short": "15 okt", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["Doc", "Hemmer", "Kuch", "Trax"], "absent": ["App"], "noplay_reason": ""}, {"iso": "2026-10-22", "week": 43, "label": "22 okt 2026", "short": "22 okt", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["App", "Geit", "Lustig", "Trax"], "absent": ["Taan", "Hemmer"], "noplay_reason": ""}, {"iso": "2026-10-29", "week": 44, "label": "29 okt 2026", "short": "29 okt", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["Doc", "Geit", "Kuch", "Taan"], "absent": ["App", "Trax", "Hemmer"], "noplay_reason": ""}, {"iso": "2026-11-05", "week": 45, "label": "5 nov 2026", "short": "5 nov", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["App", "Geit", "Lustig", "Taan"], "absent": ["Trax"], "noplay_reason": ""}, {"iso": "2026-11-12", "week": 46, "label": "12 nov 2026", "short": "12 nov", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["App", "Hemmer", "Kuch", "Lustig"], "absent": ["Trax"], "noplay_reason": ""}, {"iso": "2026-11-19", "week": 47, "label": "19 nov 2026", "short": "19 nov", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["Doc", "Kuch", "Lustig", "Taan"], "absent": ["App", "Trax", "Hemmer"], "noplay_reason": ""}, {"iso": "2026-11-26", "week": 48, "label": "26 nov 2026", "short": "26 nov", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["App", "Hemmer", "Lustig", "Taan"], "absent": ["Trax"], "noplay_reason": ""}, {"iso": "2026-12-03", "week": 49, "label": "3 dec 2026", "short": "3 dec", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["App", "Doc", "Geit", "Trax"], "absent": [], "noplay_reason": ""}, {"iso": "2026-12-10", "week": 50, "label": "10 dec 2026", "short": "10 dec", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["Geit", "Kuch", "Lustig", "Trax"], "absent": ["App"], "noplay_reason": ""}, {"iso": "2026-12-17", "week": 51, "label": "17 dec 2026", "short": "17 dec", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["Doc", "Geit", "Hemmer", "Trax"], "absent": ["App"], "noplay_reason": ""}, {"iso": "2026-12-24", "week": 52, "label": "24 dec 2026", "short": "24 dec", "even": true, "active": false, "baan": 1, "tijd": "18:30–19:30", "lineup": [], "absent": ["Trax"], "noplay_reason": "Kerstavond — geen speelavond"}, {"iso": "2026-12-31", "week": 53, "label": "31 dec 2026", "short": "31 dec", "even": false, "active": false, "baan": 4, "tijd": "20:00–21:00", "lineup": [], "absent": ["App", "Trax"], "noplay_reason": "Oudjaarsavond — geen speelavond"}, {"iso": "2027-01-07", "week": 1, "label": "7 jan 2027", "short": "7 jan", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["App", "Doc", "Kuch", "Taan"], "absent": ["Trax"], "noplay_reason": ""}, {"iso": "2027-01-14", "week": 2, "label": "14 jan 2027", "short": "14 jan", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["Doc", "Hemmer", "Lustig", "Trax"], "absent": [], "noplay_reason": ""}, {"iso": "2027-01-21", "week": 3, "label": "21 jan 2027", "short": "21 jan", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["Geit", "Kuch", "Taan", "Trax"], "absent": ["App"], "noplay_reason": ""}, {"iso": "2027-01-28", "week": 4, "label": "28 jan 2027", "short": "28 jan", "even": true, "active": false, "baan": 1, "tijd": "18:30–19:30", "lineup": [], "absent": ["App", "Doc", "Kuch", "Trax", "Taan", "Lustig", "Geit"], "noplay_reason": "Geen speelavond"}, {"iso": "2027-02-04", "week": 5, "label": "4 feb 2027", "short": "4 feb", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["App", "Hemmer", "Lustig", "Trax"], "absent": [], "noplay_reason": ""}, {"iso": "2027-02-11", "week": 6, "label": "11 feb 2027", "short": "11 feb", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["App", "Doc", "Taan", "Trax"], "absent": [], "noplay_reason": ""}, {"iso": "2027-02-18", "week": 7, "label": "18 feb 2027", "short": "18 feb", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["Doc", "Geit", "Hemmer", "Lustig"], "absent": ["App", "Trax"], "noplay_reason": ""}, {"iso": "2027-02-25", "week": 8, "label": "25 feb 2027", "short": "25 feb", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["App", "Geit", "Kuch", "Taan"], "absent": ["Doc", "Trax", "Lustig"], "noplay_reason": ""}, {"iso": "2027-03-04", "week": 9, "label": "4 mrt 2027", "short": "4 mrt", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["App", "Doc", "Hemmer", "Kuch"], "absent": ["Trax"], "noplay_reason": ""}, {"iso": "2027-03-11", "week": 10, "label": "11 mrt 2027", "short": "11 mrt", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["App", "Doc", "Geit", "Lustig"], "absent": ["Trax"], "noplay_reason": ""}, {"iso": "2027-03-18", "week": 11, "label": "18 mrt 2027", "short": "18 mrt", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["Doc", "Geit", "Hemmer", "Taan"], "absent": ["App", "Trax"], "noplay_reason": ""}, {"iso": "2027-03-25", "week": 12, "label": "25 mrt 2027", "short": "25 mrt", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["App", "Kuch", "Lustig", "Trax"], "absent": [], "noplay_reason": ""}, {"iso": "2027-04-01", "week": 13, "label": "1 apr 2027", "short": "1 apr", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["Hemmer", "Lustig", "Taan", "Trax"], "absent": [], "noplay_reason": ""}, {"iso": "2027-04-08", "week": 14, "label": "8 apr 2027", "short": "8 apr", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["Doc", "Geit", "Kuch", "Trax"], "absent": [], "noplay_reason": ""}, {"iso": "2027-04-15", "week": 15, "label": "15 apr 2027", "short": "15 apr", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["App", "Kuch", "Taan", "Trax"], "absent": [], "noplay_reason": ""}, {"iso": "2027-04-22", "week": 16, "label": "22 apr 2027", "short": "22 apr", "even": true, "active": true, "baan": 1, "tijd": "18:30–19:30", "lineup": ["Geit", "Hemmer", "Taan", "Trax"], "absent": [], "noplay_reason": ""}, {"iso": "2027-04-29", "week": 17, "label": "29 apr 2027", "short": "29 apr", "even": false, "active": true, "baan": 4, "tijd": "20:00–21:00", "lineup": ["App", "Doc", "Kuch", "Lustig"], "absent": ["Trax"], "noplay_reason": ""}], "notes": {"App": ["3 sep", "17 sep", "15 okt", "29 okt", "19 nov", "10 dec", "17 dec", "31 dec", "21 jan", "28 jan", "18 feb", "18 mrt"], "Doc": ["28 jan", "25 feb"], "Kuch": ["8 okt", "28 jan"], "Trax": ["Alleen beschikbaar op: 24 sep, 1 okt, 8 okt, 15 okt, 22 okt, 3 dec, 10 dec, 17 dec, 14 jan, 21 jan, 4 feb, 11 feb, 25 mrt, 1 apr, 8 apr, 15 apr, 22 apr"], "Taan": ["22 okt", "28 jan"], "Hemmer": ["22 okt", "29 okt", "19 nov"], "Lustig": ["28 jan", "25 feb"], "Geit": ["3 sep", "28 jan"]}};
+const P = DATA.players;
+let selected = null;
+function cls(r,p){
+  if(!r.active) return r.absent.indexOf(p)>-1?'absent':'none';
+  if(r.absent.indexOf(p)>-1) return 'absent';
+  return r.lineup.indexOf(p)>-1?'play':'rest';
+}
+function sym(r,p){var c=cls(r,p);return c==='play'?'✓':c==='absent'?'✕✕':c==='none'?'–':'·';}
+function buildFilter(){
+  var f=document.getElementById('filter');if(!f)return;f.innerHTML='';
+  var all=document.createElement('div');all.className='chip all'+(selected===null?' active':'');
+  all.textContent='Alle spelers';all.dataset.gleanId='chip-all';
+  all.onclick=function(){selected=null;render();};f.appendChild(all);
+  P.forEach(function(p){
+    var c=document.createElement('div');c.className='chip'+(p===selected?' active':'');
+    c.textContent=p;c.dataset.gleanId='chip-'+p;
+    c.onclick=function(){selected=(selected===p?null:p);render();};f.appendChild(c);
+  });
+}
+function render(){
+  var head=document.getElementById('head');if(!head)return;
+  head.innerHTML='<th class="datecol">Datum</th><th>Baan &amp; tijd</th>'+P.map(function(p){return '<th'+(p===selected?' style="color:var(--artifact-accent)"':'')+'>'+p+'</th>';}).join('');
+  var body=document.getElementById('body');body.innerHTML='';
+  DATA.rows.forEach(function(r){
+    var tr=document.createElement('tr');tr.dataset.gleanId='row-'+r.iso;
+    tr.className=(r.even?'even-row':'odd-row');
+    if(!r.active) tr.className='noplay';
+    else if(selected && r.lineup.indexOf(selected)>-1) tr.classList.add('highlight-play');
+    var html='<td class="datecol"><span class="wk">Week '+r.week+'</span>'+r.label+'</td>';
+    if(r.active){html+='<td><span class="court-pill '+(r.even?'even':'odd')+'">Baan '+r.baan+'</span><br><span style="font-size:.8rem;color:var(--artifact-muted)">'+r.tijd+'</span></td>';}
+    else{html+='<td style="font-style:italic">'+(r.noplay_reason||'Geen speelavond')+'</td>';}
+    P.forEach(function(p){var c=cls(r,p);var dim=(selected && p!==selected)?'opacity:.32;':'';html+='<td class="cell '+c+'" style="'+dim+'">'+sym(r,p)+'</td>';});
+    tr.innerHTML=html;body.appendChild(tr);
+  });
+  var foot=document.getElementById('foot');
+  foot.innerHTML='<td class="datecol">Totaal</td><td></td>'+P.map(function(p){var t=DATA.rows.filter(function(r){return r.active&&r.lineup.indexOf(p)>-1;}).length;return '<td'+(p===selected?' style="color:var(--artifact-accent)"':'')+'>'+t+'×</td>';}).join('');
+  buildSummary();
+  document.querySelectorAll('.chip').forEach(function(c){var isAll=c.classList.contains('all');c.classList.toggle('active', isAll ? selected===null : c.textContent===selected);});
+}
+function buildSummary(){
+  var s=document.getElementById('summary');if(!s)return;s.innerHTML='';
+  P.forEach(function(p){
+    var total=DATA.rows.filter(function(r){return r.active&&r.lineup.indexOf(p)>-1;}).length;
+    var even=DATA.rows.filter(function(r){return r.active&&r.even&&r.lineup.indexOf(p)>-1;}).length;
+    var odd=DATA.rows.filter(function(r){return r.active&&!r.even&&r.lineup.indexOf(p)>-1;}).length;
+    var d=document.createElement('div');d.className='pcard';d.dataset.gleanId='pcard-'+p;
+    if(p===selected) d.style.outline='2px solid var(--artifact-accent)';
+    d.innerHTML='<h4>'+p+' <span class="ok">'+total+'×</span></h4><div class="split"><span>Even (Baan 1): <b>'+even+'</b></span><span>Oneven (Baan 4): <b>'+odd+'</b></span></div><button class="ics-btn" type="button" onclick="event.stopPropagation();downloadICS(\''+p+'\')">📅 Zet in agenda</button>';
+    d.style.cursor='pointer';
+    d.onclick=function(){selected=(selected===p?null:p);render();window.scrollTo({top:0,behavior:'smooth'});};
+    s.appendChild(d);
+  });
+}
+function buildNotes(){
+  var n=document.getElementById('notes');if(!n)return;n.innerHTML='';
+  P.forEach(function(p){var arr=DATA.notes[p]||[];if(!arr.length)return;var li=document.createElement('li');li.dataset.gleanId='note-'+p;li.innerHTML='<b>'+p+'</b><span>'+arr.join(', ')+'</span>';n.appendChild(li);});
+}
+function parseISO(iso){var p=iso.split('-');return new Date(+p[0],(+p[1])-1,+p[2]);}
+var WD=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+var MO=['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+function buildNext(){
+  var el=document.getElementById('next');if(!el)return;
+  var now=new Date();now.setHours(0,0,0,0);
+  var up=DATA.rows.filter(function(r){return r.active && parseISO(r.iso)>=now;})[0];
+  if(!up){var past=DATA.rows.filter(function(r){return r.active;});el.className='next done';el.innerHTML='<div class="eyebrow">Seizoen afgelopen</div><div class="when">Winterpadel 2026/27 zit erop 🎉</div><div class="rest-note">Alle '+past.length+' speelavonden zijn gespeeld. Tot volgend seizoen!</div>';return;}
+  var d=parseISO(up.iso);var days=Math.round((d-now)/86400000);
+  var cd=days===0?'<div class="n">Vandaag</div><div class="u">Speeldag!</div>':days===1?'<div class="n">Morgen</div><div class="u">1 dag</div>':'<div class="n">'+days+'</div><div class="u">dagen te gaan</div>';
+  var whenTxt=WD[d.getDay()]+' '+d.getDate()+' '+MO[d.getMonth()];
+  var rest=DATA.players.filter(function(p){return up.lineup.indexOf(p)===-1;});
+  el.className='next '+(up.even?'even':'odd');
+  el.innerHTML='<div class="countdown">'+cd+'</div><div class="eyebrow"><span class="live"></span>Aankomende ronde · Week '+up.week+'</div><div class="when">'+whenTxt+'</div><div class="meta"><span class="mpill">🎾 Baan '+up.baan+'</span><span class="mpill">🕒 '+up.tijd+'</span></div><div class="who-label">Deze ronde spelen</div><div class="who">'+up.lineup.map(function(p,i){return '<span class="pl"><span class="num">'+(i+1)+'</span>'+p+'</span>';}).join('')+'</div><div class="rest-note">Rust deze ronde: '+rest.join(', ')+'</div>';
+}
+function icsFor(player){
+  var games=DATA.rows.filter(function(r){return r.active && r.lineup.indexOf(player)>-1;});
+  var stamp=new Date().toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+  var L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Winterpadel 2026-27//NL','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VTIMEZONE','TZID:Europe/Amsterdam','BEGIN:DAYLIGHT','TZOFFSETFROM:+0100','TZOFFSETTO:+0200','TZNAME:CEST','DTSTART:19700329T020000','RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU','END:DAYLIGHT','BEGIN:STANDARD','TZOFFSETFROM:+0200','TZOFFSETTO:+0100','TZNAME:CET','DTSTART:19701025T030000','RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU','END:STANDARD','END:VTIMEZONE'];
+  games.forEach(function(r){
+    var dt=r.iso.replace(/-/g,'');var s=dt+'T'+(r.even?'183000':'200000');var e=dt+'T'+(r.even?'193000':'210000');
+    var mates=r.lineup.filter(function(x){return x!==player;}).join(', ');
+    L.push('BEGIN:VEVENT');L.push('UID:winterpadel-'+r.iso+'-'+player+'@winterpadel');L.push('DTSTAMP:'+stamp);
+    L.push('DTSTART;TZID=Europe/Amsterdam:'+s);L.push('DTEND;TZID=Europe/Amsterdam:'+e);
+    L.push('SUMMARY:Winterpadel \u2014 Baan '+r.baan);L.push('LOCATION:Baan '+r.baan);
+    L.push('DESCRIPTION:Winterpadel 2026/27 (week '+r.week+'). Met: '+mates+'.');
+    L.push('BEGIN:VALARM','TRIGGER:-PT2H','ACTION:DISPLAY','DESCRIPTION:Winterpadel','END:VALARM');L.push('END:VEVENT');
+  });
+  L.push('END:VCALENDAR');return L.join('\r\n');
+}
+function isIOS(){var ua=navigator.userAgent||'';return /iP(hone|ad|od)/.test(ua)||(ua.indexOf('Macintosh')>-1&&navigator.maxTouchPoints>1);}
+function downloadICS(player){
+  var ics=icsFor(player);
+  if(isIOS()){window.location.href='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);return;}
+  try{var blob=new Blob([ics],{type:'text/calendar;charset=utf-8'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='winterpadel-'+player.toLowerCase()+'.ics';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(url);a.remove();},1500);}
+  catch(e){window.location.href='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);}
+}
+function init(){try{buildFilter();}catch(e){}try{buildNotes();}catch(e){}try{render();}catch(e){}try{buildNext();}catch(e){}}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+if(window.GleanBridge){window.GleanBridge.postMessage({actionId:'export-pdf',type:'glean-add-menu',metadata:{label:'Export as PDF',icon:'export'}});window.GleanBridge.onMessage('action',function(d){if(d.actionId==='export-pdf')window.print();});}
+</script>
+</body>
+</html>
